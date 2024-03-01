@@ -1,15 +1,17 @@
-let btn = document.querySelector("button");
+let btn = document.querySelector(".submit");
 let inp = document.querySelector(".box input");
 let boxInfo = document.querySelector("#boxInfo");
 let URL = 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=';
 let field = document.querySelector(".ans");
-let qr = async () => {
+let qr = () => {
     field.innerHTML = `
     <span class="location">Loading...</span>
     `;
-    field.innerHTML = `
+    setTimeout(() => {
+        field.innerHTML = `
         <img src=${`${URL}${inp.value}`}></img>
-    `;
+        `;
+    }, 1500);
 }
 btn.addEventListener('click', () => {
     if (inp.value == '') {
